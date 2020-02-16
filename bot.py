@@ -48,7 +48,7 @@ def main():
     date = datetime.datetime.now()
     weekday = datetime.datetime.today().weekday()
     today = date.strftime("%B %d, %Y")
-    sub = praw.Reddit('shwiki').subreddit('kmisterk')
+    sub = praw.Reddit('shwiki').subreddit('selfhosted')
     if weekday == 0:
         hosting_post(sub, today)
     elif weekday == 4:
