@@ -2,26 +2,7 @@ import praw
 import datetime
 
 
-def to_month_name(month_int):
-    case = {
-        1: "January",
-        2: "February",
-        3: "March",
-        4: "April",
-        5: "May",
-        6: "June",
-        7: "July",
-        8: "August",
-        9: "September",
-        10: "October",
-        11: "November",
-        12: "December"
-    }
-    return case.get(month_int)
-
-
 def hosting_post(sub, today):
-
     title = "Weekly What Are You Hosting Megathread - " + today
     post = sub.submit(
         title,
@@ -64,17 +45,13 @@ With that said, Feel free to show us your awesome dashboards, share your progres
 
 
 def main():
-    weekday = datetime.datetime.today().weekday()
-    print(weekday)
     date = datetime.datetime.now()
-    day = str(date.day)
-    year = str(date.year)
+    weekday = datetime.datetime.today().weekday()
+    today = date.strftime("%B %d, %Y")
     sub = praw.Reddit('shwiki').subreddit('kmisterk')
-    month_name = to_month_name(date.month)
-    today = month_name + " " + day + ", " + year
     if weekday == 0:
         hosting_post(sub, today)
-    elif weekday == 5:
+    elif weekday == 4:
         dashboard_post(sub, today)
 
 
