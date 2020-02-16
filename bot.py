@@ -51,7 +51,7 @@ def main():
     sub = praw.Reddit('shwiki').subreddit('selfhosted')
     if weekday == 0:
         hosting_post(sub, today)
-    elif weekday == 4:
+    elif weekday == 3:
         dashboard_post(sub, today)
 
 
